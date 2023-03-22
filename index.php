@@ -36,7 +36,9 @@ function dooo_plugin_list(){
       $name = $plugin['Name'];
       $url = $plugin['PluginURI'];
       $description = $plugin['Description'];
-      $html .= "<div class='dooo-list' id='dooo-plugin-{$i}'><a href='{$url}'>{$name}</a> - {$description}</div>";
+      if($name != "Reclaim Chooser"){
+          $html .= "<div class='dooo-list' id='dooo-plugin-{$i}'><a href='{$url}'>{$name}</a> <span class='plugin-descrip' id='dooo-plugin-description-{$i}'> - {$description}</span></div>";
+      }     
    }
    return $html;
 }
@@ -55,7 +57,7 @@ function dooo_theme_list(){
       $name = $theme->get('Name');
       $description = $theme->get('Description');
       $url = $theme->get('ThemeURI');
-      $html .= "<div class='dooo-list' id='dooo-theme-{$i}'><a href='{$url}'>{$name}</a> - {$description}</div>";
+      $html .= "<div class='dooo-list' id='dooo-theme-{$i}'><a href='{$url}'>{$name}</a> <span class='theme-descrip' id='dooo-theme-description-{$i}'> - {$description}</span></div>";
    }
    return $html;
 }
